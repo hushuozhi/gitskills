@@ -1,0 +1,72 @@
+安装git:
+	sudo apt-get install git
+	git config --global user.name "your name"
+	git config --global user.email "email"
+创建版本库:
+	新建一个空目录:
+		mkdir learngit
+		cd learngit
+	把目录变成仓库
+		git init
+向仓库添加文件:
+	1.把文件添加到仓库
+		git add readme.txt
+	2.用命令告诉git,把文件提交到仓库
+		git commit -m "文件的详情"
+随时掌握工作区的状态,使用命令:git status
+
+如果文件被修改过用 git diff 可以查看修改内容
+
+版本回退:
+	git log :显示从近到远的提价交日志
+	git log --pretty=oneline :显示提交日志,简洁显示
+	git reset --hard HEAD^ 回退上一个版本(HEAD代表本版本)
+	git reflog 查看命令历史
+
+撤销修改:
+	场景1:当你改乱了工作区某个文件的内容 ,想直接放弃修改工作区的修改时用命令:
+		git checkout --file
+	场景2:当你不但改乱了工作区某个文件的内容,还添加到了缓存区,想要丢弃修改,分两步:
+		第一步:git reset HEAD<file>,就回到了场景1;
+		第二部:按场景1操作
+	场景3:已经提交了不合适的修改到版本库时,想要撤销本次提交,参考版本回退,不过前提是没有推送到远程库.
+
+删除文件:
+	删除文件: rm test.txt
+	从版本库中删除: git rm test.txt
+	               git commit -m "填写内容"
+
+创建ssh key:
+	ssh-keygen -t rsa -C "邮箱" 在用户目录下生成.ssh目录
+	生成的公钥填写到github
+
+添加一个远程库:
+	git remote add origin git@github.com:hushuozhi/learngit.git
+	推送:
+	git push -u origin master ;第一次用-u后面就不用了
+
+<<<<<<< HEAD
+从远程库克隆:
+	git clone git@github.com:hushuozhi/gitskills.git
+=======
+从远程库克隆下载
+	git clone git@github.com:hushuozhi/learn.git
+
+分支管理
+	创建与合并分支
+		查看分支:git branch
+		创建分支:git branch <name>
+		切换分支:git checkout <name>或者git switch <name>
+		创建+切换分支:git checkout -b <name>或者git switch -c <name>
+		合并某分支到当前分支:git merge <name>
+		删除分支:git branch -d <name>
+		
+
+
+
+>>>>>>> 7242c2066bbeb643f86b7c394ed607d2717a7a46
+
+
+
+
+
